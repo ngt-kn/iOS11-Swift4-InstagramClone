@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		546681E7210650C30026368D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546681E6210650C30026368D /* AppDelegate.swift */; };
-		546681E9210650C30026368D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546681E8210650C30026368D /* ViewController.swift */; };
 		546681EC210650C30026368D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546681EA210650C30026368D /* Main.storyboard */; };
 		546681EE210650C40026368D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546681ED210650C40026368D /* Assets.xcassets */; };
 		546681F1210650C40026368D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546681EF210650C40026368D /* LaunchScreen.storyboard */; };
@@ -26,12 +25,14 @@
 		54668212210652900026368D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54668210210652900026368D /* Parse.framework */; };
 		5466821621065FCD0026368D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5466821521065FCD0026368D /* ApiKeys.plist */; };
 		54668218210660310026368D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54668217210660310026368D /* ApiKeys.swift */; };
+		5466821A210677A90026368D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54668219210677A90026368D /* LoginViewController.swift */; };
+		54668221210678AD0026368D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54668220210678AD0026368D /* ResetPasswordViewController.swift */; };
+		5466822321067A940026368D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5466822221067A940026368D /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		546681E3210650C30026368D /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546681E6210650C30026368D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		546681E8210650C30026368D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		546681EB210650C30026368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		546681ED210650C40026368D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		546681F0210650C40026368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		54668210210652900026368D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5466821521065FCD0026368D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		54668217210660310026368D /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		54668219210677A90026368D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		54668220210678AD0026368D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		5466822221067A940026368D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,13 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				546681E6210650C30026368D /* AppDelegate.swift */,
-				546681E8210650C30026368D /* ViewController.swift */,
-				546681EA210650C30026368D /* Main.storyboard */,
+				5466821D210677E10026368D /* Model */,
+				5466821C210677CA0026368D /* View */,
+				5466821B210677C20026368D /* Controller */,
 				546681ED210650C40026368D /* Assets.xcassets */,
-				546681EF210650C40026368D /* LaunchScreen.storyboard */,
 				546681F2210650C40026368D /* Info.plist */,
-				5466821521065FCD0026368D /* ApiKeys.plist */,
-				54668217210660310026368D /* ApiKeys.swift */,
+				5466822421067AB30026368D /* Support */,
 			);
 			path = InstagramClone;
 			sourceTree = "<group>";
@@ -126,6 +129,41 @@
 				546681F92106512F0026368D /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5466821B210677C20026368D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54668219210677A90026368D /* LoginViewController.swift */,
+				54668220210678AD0026368D /* ResetPasswordViewController.swift */,
+				5466822221067A940026368D /* SignUpViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5466821C210677CA0026368D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				546681EA210650C30026368D /* Main.storyboard */,
+				546681EF210650C40026368D /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5466821D210677E10026368D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5466822421067AB30026368D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				5466821521065FCD0026368D /* ApiKeys.plist */,
+				54668217210660310026368D /* ApiKeys.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +238,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				546681E9210650C30026368D /* ViewController.swift in Sources */,
+				5466821A210677A90026368D /* LoginViewController.swift in Sources */,
 				546681E7210650C30026368D /* AppDelegate.swift in Sources */,
+				54668221210678AD0026368D /* ResetPasswordViewController.swift in Sources */,
 				54668218210660310026368D /* ApiKeys.swift in Sources */,
+				5466822321067A940026368D /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
