@@ -122,6 +122,34 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.present(alert, animated: true, completion: nil)
         }
         
+        // Parse send data to server
+        let user = PFUser()
+        user.username = userNameText.text?.lowercased()
+        user.email = emailText.text?.lowercased()
+        user.password = passwordText.text
+        user["fullname"] = fullNameText.text?.lowercased()
+        user["bio"] = bioText.text
+        user["website"] = websiteText.text?.lowercased()
+        // set up fields for later use in profile
+        user["tel"] = ""
+        user["gender"] = ""
+        
+        // profile picture compress then send
+        let profileImageData = UIImageJPEGRepresentation(profileImageView.image!, 0.5)
+        let profileFile = PFFile(name: "profile.jpg", data: profileImageData!)
+        user["profile"] = profileFile
+        
+        // save data in server
+        user.signUpInBackground { (success, error) -> Void in
+            if success {
+                print("registered")
+                
+            } else {
+                print(error?.localizedDescription ?? "error")
+                
+            }
+        }
+   
     }
     
     // cancel clicked
