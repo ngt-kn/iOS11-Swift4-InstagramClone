@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // Profile image outlet
     @IBOutlet weak var profileImageView: UIImageView!
     // textfield outlets
     @IBOutlet weak var userNameText: UITextField!
+    @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var repeatPasswordText: UITextField!
     @IBOutlet weak var fullNameText: UITextField!
@@ -103,7 +105,23 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // sign up clicked
     @IBAction func btnSignUpClick(_ sender: UIButton) {
-        print("sign up pressed")
+        self.view.endEditing(true) // dismiss keyboard
+        
+        // check if fields are empty
+        if (userNameText.text!.isEmpty || emailText.text!.isEmpty || passwordText.text!.isEmpty || fullNameText.text!.isEmpty || bioText.text!.isEmpty || websiteText.text!.isEmpty){
+            let alert = UIAlertController(title: "Sign Up Error", message: "Enter All Fields", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
+        // check if passwords match
+        if passwordText.text != repeatPasswordText.text {
+            let alert = UIAlertController(title: "Passwords Do Not Match", message: "Enter passwords", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     // cancel clicked
