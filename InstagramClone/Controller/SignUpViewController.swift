@@ -32,9 +32,46 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        scrollView.contentSize.height = self.view.frame.height
+        scrollViewHeight = scrollView.frame.size.height;
+        
+        // check notification center if keyboard is shown or not
+        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.showKeyboard(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.hideKeyboardTapped(_:)))
+        hideTap.numberOfTapsRequired = 1
+        self.view.isUserInteractionEnabled = true
+        self.view.addGestureRecognizer(hideTap)
+        
     }
+    
+    // show keyboard func, move scrollview up
+    @objc func showKeyboard(_ notification:NSNotification) {
+        // define keyboard size
+        keyboardFrameSize = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+
+        // move up UI
+        UIView.animate(withDuration: 0.4, animations: { () -> Void in
+            self.scrollView.frame.size.height = self.scrollViewHeight - self.keyboardFrameSize.height
+        })
+    }
+    
+    // hide keyboard func, move scrollview down
+    @objc func hideKeyboard(_ notification:Notification) {
+        // move down UI
+        UIView.animate(withDuration: 0.4, animations: { () -> Void in
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
+    }
+    
+    // hide keyboard if tapped
+    @objc func hideKeyboardTapped(_ recognizer:UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     
     // sign up clicked
     @IBAction func btnSignUpClick(_ sender: UIButton) {
@@ -46,6 +83,4 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
-
 }
