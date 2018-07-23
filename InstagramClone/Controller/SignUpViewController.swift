@@ -9,27 +9,43 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-
+    // Profile image outlet
+    @IBOutlet weak var profileImageView: UIImageView!
+    // textfield outlets
+    @IBOutlet weak var userNameText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var repeatPasswordText: UITextField!
+    @IBOutlet weak var fullNameText: UITextField!
+    @IBOutlet weak var bioText: UITextField!
+    @IBOutlet weak var websiteText: UITextField!
+    // scrollview outlet
+    @IBOutlet weak var scrollView: UIScrollView!
+    // button outlets
+    @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    
+    
+    // Reset scrollview  default size
+    var scrollViewHeight: CGFloat = 0;
+    // keyboard frame size
+    var keyboardFrameSize = CGRect()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // sign up clicked
+    @IBAction func btnSignUpClick(_ sender: UIButton) {
+        print("sign up pressed")
+    }
+    
+    // cancel clicked
+    @IBAction func btnCancelClick(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
