@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let clientID = valueForAPIKey(named:"API_CLIENT_ID")
+        let clientKey = valueForAPIKey(named:"API_SECRET")
+        // Config parse for heroku
+        
+        let parseConfig = ParseClientConfiguration { (ParseMutableClientConfiguration) in
+            ParseMutableClientConfiguration.applicationId = clientID
+            ParseMutableClientConfiguration.clientKey = clientKey
+            ParseMutableClientConfiguration.server = "http://ngtkninstagramclone.herokuapp.com/parse"
+            
+        }
+        Parse.initialize(with: parseConfig)
+        
         return true
     }
 
