@@ -60,6 +60,26 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(profileImageTap)
         
+        // alignment
+        profileImageView.frame = CGRect(x: self.view.frame.size.width / 2 - 40, y: 40, width: 80, height: 80)
+        emailText.frame = CGRect(x: 10, y: profileImageView.frame.origin.y + 90,
+                                 width: self.view.frame.size.width - 20, height: 30)
+        userNameText.frame = CGRect(x: 10, y: emailText.frame.origin.y + 40,
+                                    width: self.view.frame.size.width - 20, height: 30)
+        passwordText.frame = CGRect(x: 10, y: userNameText.frame.origin.y + 40,
+                                    width: self.view.frame.size.width - 20, height: 30)
+        repeatPasswordText.frame = CGRect(x: 10, y: passwordText.frame.origin.y + 40,
+                                          width: self.view.frame.size.width - 20, height: 30)
+        fullNameText.frame = CGRect(x: 10, y: repeatPasswordText.frame.origin.y + 60,
+                                    width: self.view.frame.size.width - 20, height: 30)
+        bioText.frame = CGRect(x: 10, y: fullNameText.frame.origin.y + 40,
+                               width: self.view.frame.size.width - 20, height: 30)
+        websiteText.frame = CGRect(x: 10, y: bioText.frame.origin.y + 40,
+                                   width: self.view.frame.size.width - 20, height: 30)
+        
+        btnSignUp.frame = CGRect(x: 20, y: websiteText.frame.origin.y + 50,
+                                 width: self.view.frame.size.width / 4, height: 30)
+        btnCancel.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width / 4) - 20, y: btnSignUp.frame.origin.y, width: self.view.frame.size.width / 4 - 20, height: 30)
     }
     
     // show keyboard func, move scrollview up
@@ -163,8 +183,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
    
     }
     
-    // cancel clicked
+    // cancel clicked, hide keyboard and dismiss view
     @IBAction func btnCancelClick(_ sender: UIButton) {
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
     
