@@ -38,6 +38,12 @@ class LoginViewController: UIViewController {
                                  width: self.view.frame.size.width / 4, height: 30)
         btnSignUp.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width / 4) - 20,
                                  y: btnSignIn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
+        
+        // tap to hide keyboard
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.hideKeyboardTapped(_:)))
+        hideTap.numberOfTapsRequired = 1;
+        self.view.isUserInteractionEnabled = true
+        self.view.addGestureRecognizer(hideTap)
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,16 +75,10 @@ class LoginViewController: UIViewController {
                 appDelegate.login()
             }
         }
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destinationViewController.
-         // Pass the selected object to the new view controller.
-         }
-         */
-        
+    }
+    
+    // hide keyboard if view tapped
+    @objc func hideKeyboardTapped(_ recognizer:UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 }

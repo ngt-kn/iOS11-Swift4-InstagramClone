@@ -20,26 +20,13 @@ class ResetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // alignments
+        emailText.frame = CGRect(x: 10, y: 120, width: self.view.frame.size.width - 20, height: 30)
+        btnReset.frame = CGRect(x: 20, y: emailText.frame.origin.y + 50,
+                                width: self.view.frame.size.width / 4, height: 30)
+        btnCancel.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width / 4) - 20 ,
+                                 y: btnReset.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     // Currently not supported by heroku
     @IBAction func btnResetClicked(_ sender: Any) {
         
@@ -68,7 +55,10 @@ class ResetPasswordViewController: UIViewController {
         }
     }
     
+    // hide keyboard/ dismiss view
     @IBAction func btnCancelClicked(_ sender: UIButton) {
+        self.view.endEditing(true)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
