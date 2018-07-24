@@ -39,6 +39,8 @@ class ResetPasswordViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // Currently not supported by heroku
     @IBAction func btnResetClicked(_ sender: Any) {
         
         self.view.endEditing(true)

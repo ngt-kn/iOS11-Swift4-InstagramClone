@@ -64,6 +64,13 @@
                                     <segue destination="6Ii-SN-rbA" kind="modal" id="33x-UX-FoQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instagram Clone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hh1-Oy-qrl">
+                                <rect key="frame" x="27" y="70" width="332" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -71,13 +78,14 @@
                         <outlet property="btnForgotPass" destination="Nss-Lz-NlO" id="wvz-hI-NfV"/>
                         <outlet property="btnSignIn" destination="Bv6-8I-Vmk" id="Su9-wd-9sA"/>
                         <outlet property="btnSignUp" destination="RNG-pq-j9I" id="geQ-Yw-pCF"/>
+                        <outlet property="label" destination="hh1-Oy-qrl" id="ZNZ-k8-v0N"/>
                         <outlet property="passwordTextField" destination="3Sp-9Q-ER4" id="EM2-Ss-vvR"/>
                         <outlet property="userNameTextField" destination="62C-8c-uvv" id="qzH-py-XOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="99"/>
+            <point key="canvasLocation" x="-76.5" y="98.5"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Sis-MO-NnQ">
@@ -189,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvc-QZ-OIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="662"/>
+            <point key="canvasLocation" x="389" y="99"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="4sd-bi-WWa">

@@ -11,6 +11,9 @@ import Parse
 
 class LoginViewController: UIViewController {
     
+    
+@IBOutlet weak var label: UILabel!
+    
     // Outlets for text fields
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,8 +25,19 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    
+        // alignment for objects
+        label.frame = CGRect(x: 10, y: 80, width: self.view.frame.size.width - 20, height: 50)
+        userNameTextField.frame = CGRect(x: 10, y: label.frame.origin.y + 70,
+                                         width: self.view.frame.size.width - 20, height: 30)
+        passwordTextField.frame = CGRect(x: 10, y: userNameTextField.frame.origin.y + 40,
+                                         width: self.view.frame.size.width - 20, height: 30)
+        btnForgotPass.frame = CGRect(x: 10, y: passwordTextField.frame.origin.y + 30,
+                                     width: self.view.frame.size.width - 20, height: 30)
+        btnSignIn.frame = CGRect(x: 20, y: btnForgotPass.frame.origin.y + 40,
+                                 width: self.view.frame.size.width / 4, height: 30)
+        btnSignUp.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width / 4) - 20,
+                                 y: btnSignIn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
     }
     
     override func didReceiveMemoryWarning() {
