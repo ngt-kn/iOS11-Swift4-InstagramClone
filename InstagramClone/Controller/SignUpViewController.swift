@@ -113,6 +113,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
+            
+            return
         }
         // check if passwords match
         if passwordText.text != repeatPasswordText.text {
@@ -120,6 +122,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
+            
+            return
         }
         
         // Parse send data to server
@@ -144,9 +148,16 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             if success {
                 print("registered")
                 
+                // Remember username
+                UserDefaults.standard.set(user.username, forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                // call login func from Appdelegate to show main page
+                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.login()
+                
             } else {
                 print(error?.localizedDescription ?? "error")
-                
             }
         }
    
