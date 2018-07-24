@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import Parse
 
 class ResetPasswordViewController: UIViewController {
-
+    // textfield
+    @IBOutlet weak var emailText: UITextField!
+    
+    // buttons
+    @IBOutlet weak var btnReset: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +39,34 @@ class ResetPasswordViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func btnResetClicked(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        
+        if emailText.text!.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "email field is empty", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        // request for reseting password
+        PFUser.requestPasswordResetForEmail(inBackground: emailText.text!) { (success, error) -> Void in
+            if success {
+                // show alert success
+                let alert = UIAlertController(title: "Email for reseting password", message: "has been sent to texted email", preferredStyle: UIAlertControllerStyle.alert)
+                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func btnCancelClicked(_ sender: UIButton) {
+    }
+    
 }
